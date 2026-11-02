@@ -1,0 +1,265 @@
+diff --git a/common/tool/action_toolbar.cpp b/common/tool/action_toolbar.cpp
+index 4e05e9e8..12be7908 100644
+--- a/common/tool/action_toolbar.cpp
++++ b/common/tool/action_toolbar.cpp
+@@ -35,6 +35,11 @@
+ #include <settings/common_settings.h>
+ #include <trace_helpers.h>
+ #include <tool/action_toolbar.h>
++#include <tool/picker_tool.h>
++#include <tool/selection.h>
++#include <tool/tools_holder.h>
++#include <gal/cursors.h>
++#include <set>
+ #include <tool/actions.h>
+ #include <tool/tool_action.h>
+ #include <tool/tool_event.h>
+@@ -45,6 +50,7 @@
+ #include <widgets/bitmap_button.h>
+ #include <widgets/wx_aui_art_providers.h>
+ 
++#include <wx/app.h>
+ #include <wx/log.h>
+ #include <wx/popupwin.h>
+ #include <wx/renderer.h>
+@@ -322,7 +328,11 @@ void ACTION_TOOLBAR::ApplyConfiguration( const TOOLBAR_CONFIGURATION& aConfig )
+             break;
+ 
+         case TOOLBAR_ITEM_TYPE::SPACER:
+-            AddSpacer( item.m_Size );
++            if( item.m_Size < 0 )
++                AddStretchSpacer();
++            else
++                AddSpacer( item.m_Size );
++
+             break;
+ 
+         case TOOLBAR_ITEM_TYPE::TB_GROUP:
+@@ -729,6 +739,85 @@ void ACTION_TOOLBAR::Toggle( const TOOL_ACTION& aAction, bool aEnabled, bool aCh
+ }
+ 
+ 
++// Eagle works command first: pick the command, then click the part. KiCad's
++// edit commands act on what is already selected, so clicked on a toolbar with
++// nothing selected they did nothing. For these the toolbar starts KiCad's own
++// picker instead, and every click on the drawing runs the command on what is
++// under it, until Escape, as in Eagle.
++static const std::set<std::string> EAGLE_VERBS = {
++    "common.Interactive.duplicate",           "common.Interactive.delete",
++    "pcbnew.InteractiveMove.move",            "pcbnew.InteractiveEdit.flip",
++    "pcbnew.InteractiveEdit.rotateCcw",       "pcbnew.InteractiveEdit.properties",
++    "pcbnew.EditorControl.toggleLock",        "pcbnew.InteractiveEdit.swapPadNets",
++    "pcbnew.InteractiveEdit.swapGateNets",    "pcbnew.InteractiveRouter.BreakTrack",
++    "pcbnew.InteractiveSelection.unrouteSelected", "pcbnew.EditorControl.highlightNetSelection",
++    "eeschema.InteractiveMove.move",          "eeschema.InteractiveEdit.mirrorV",
++    "eeschema.InteractiveEdit.rotateCCW",     "eeschema.InteractiveEdit.properties",
++    "eeschema.InteractiveEdit.swapPins",      "eeschema.InteractiveEdit.editReference",
++    "eeschema.InteractiveEdit.editValue",     "eeschema.InteractiveEdit.changeSymbol",
++    "eeschema.InteractiveEdit.symbolProperties", "eeschema.InteractiveEdit.breakWire",
++};
++
++// These start an interactive tool of their own, which ends the picking.
++static const std::set<std::string> EAGLE_VERBS_TAKE_OVER = {
++    "common.Interactive.duplicate", "pcbnew.InteractiveMove.move", "eeschema.InteractiveMove.move",
++};
++
++
++static bool startEagleVerb( TOOL_MANAGER* aMgr, const TOOL_ACTION* aAction )
++{
++    if( !EAGLE_VERBS.count( aAction->GetName() ) )
++        return false;
++
++    TOOLS_HOLDER* holder = aMgr->GetToolHolder();
++
++    if( !holder || !holder->GetCurrentSelection().Empty() )
++        return false;   // something is already selected: act on it the KiCad way
++
++    TOOL_BASE* tool = aMgr->FindTool( "pcbnew.InteractivePicker" );
++
++    if( !tool )
++        tool = aMgr->FindTool( "common.InteractivePicker" );
++
++    PICKER_TOOL_BASE* picker = dynamic_cast<PICKER_TOOL_BASE*>( tool );
++
++    if( !picker )
++        return false;
++
++    const bool takeOver = EAGLE_VERBS_TAKE_OVER.count( aAction->GetName() );
++
++    picker->SetCursor( KICURSOR::BULLSEYE );
++    picker->SetClickHandler(
++            [aMgr, aAction, takeOver]( const VECTOR2D& aPos ) -> bool
++            {
++                // End the pick first: KiCad's edit commands do nothing while another
++                // interactive tool is running. With nothing selected, the command then
++                // takes the item under the cursor, as a hotkey would.
++                aMgr->RunAction( ACTIONS::selectionClear );
++                aMgr->PostAction( *aAction );
++
++                // Then pick again for the next item, the way an Eagle command stays
++                // active until Escape. Move and copy hand over to their own tool.
++                if( !takeOver )
++                {
++                    wxTheApp->CallAfter(
++                            [aMgr, aAction]()
++                            {
++                                startEagleVerb( aMgr, aAction );
++                            } );
++                }
++
++                return false;
++            } );
++
++    // The picker takes the event that started it as a pointer to const; any other
++    // type is refused and the picker quits at once.
++    const TOOL_EVENT source = aAction->MakeEvent();
++    aMgr->RunAction( ACTIONS::pickerTool, &source );
++    return true;
++}
++
++
+ void ACTION_TOOLBAR::onToolEvent( wxAuiToolBarEvent& aEvent )
+ {
+     int            id   = aEvent.GetId();
+@@ -801,6 +890,10 @@ void ACTION_TOOLBAR::onToolEvent( wxAuiToolBarEvent& aEvent )
+             doSelectAction( group, *next );
+             handled = true;
+         }
++        else if( actionIt != m_toolActions.end() && startEagleVerb( m_toolManager, actionIt->second ) )
++        {
++            handled = true;
++        }
+         else if( actionIt != m_toolActions.end() )
+         {
+             // Dispatch a tool event
+diff --git a/eeschema/sch_edit_frame.cpp b/eeschema/sch_edit_frame.cpp
+index 2309506a..f93b556d 100644
+--- a/eeschema/sch_edit_frame.cpp
++++ b/eeschema/sch_edit_frame.cpp
+@@ -277,11 +277,12 @@ SCH_EDIT_FRAME::SCH_EDIT_FRAME( KIWAY* aKiway, wxWindow* aParent ) :
+ 
+     m_auimgr.AddPane( createHighlightedNetNavigator(), defaultNetNavigatorPaneInfo() );
+ 
++    // Eagle layout: the command column is two toolbars side by side on the left.
+     m_auimgr.AddPane( m_tbLeft, EDA_PANE().VToolbar().Name( wxS( "LeftToolbar" ) )
+-                      .Left().Layer( 2 ) );
++                      .Left().Layer( 3 ) );
+ 
+     m_auimgr.AddPane( m_tbRight, EDA_PANE().VToolbar().Name( wxS( "RightToolbar" ) )
+-                      .Right().Layer( 2 ) );
++                      .Left().Layer( 2 ) );
+ 
+     // Center
+     m_auimgr.AddPane( GetCanvas(), EDA_PANE().Canvas().Name( wxS( "DrawFrame" ) )
+diff --git a/eeschema/tools/sch_line_wire_bus_tool.cpp b/eeschema/tools/sch_line_wire_bus_tool.cpp
+index 1289c941..4eca3664 100644
+--- a/eeschema/tools/sch_line_wire_bus_tool.cpp
++++ b/eeschema/tools/sch_line_wire_bus_tool.cpp
+@@ -1091,6 +1091,11 @@ int SCH_LINE_WIRE_BUS_TOOL::doDrawSegments( const TOOL_EVENT& aTool, SCH_COMMIT&
+         //------------------------------------------------------------------------
+         // Handle context menu:
+         //
++        else if( evt->IsClick( BUT_RIGHT ) && segment && m_wires.size() >= 2 )
++        {
++            // Eagle: right-click while drawing changes the bend.
++            m_toolMgr->PostAction( SCH_ACTIONS::switchSegmentPosture );
++        }
+         else if( evt->IsClick( BUT_RIGHT ) )
+         {
+             // Warp after context menu only if dragging...
+diff --git a/eeschema/tools/sch_move_tool.cpp b/eeschema/tools/sch_move_tool.cpp
+index a1fc4863..b38cb0ad 100644
+--- a/eeschema/tools/sch_move_tool.cpp
++++ b/eeschema/tools/sch_move_tool.cpp
+@@ -943,7 +943,8 @@ bool SCH_MOVE_TOOL::doMoveSelection( const TOOL_EVENT& aEvent, SCH_COMMIT* aComm
+         //
+         else if( evt->IsClick( BUT_RIGHT ) )
+         {
+-            m_menu->ShowContextMenu( m_selectionTool->GetSelection() );
++            // Eagle: right-click while moving rotates.
++            m_toolMgr->PostAction( SCH_ACTIONS::rotateCCW );
+         }
+         //------------------------------------------------------------------------
+         // Handle drop
+diff --git a/pcbnew/pcb_edit_frame.cpp b/pcbnew/pcb_edit_frame.cpp
+index 53a58ed0..35e900dd 100644
+--- a/pcbnew/pcb_edit_frame.cpp
++++ b/pcbnew/pcb_edit_frame.cpp
+@@ -341,8 +341,9 @@ PCB_EDIT_FRAME::PCB_EDIT_FRAME( KIWAY* aKiway, wxWindow* aParent ) :
+     m_auimgr.AddPane( m_tbLeft, EDA_PANE().VToolbar().Name( wxS( "LeftToolbar" ) )
+                       .Left().Layer( 3 ) );
+ 
++    // Eagle layout: the command column is two toolbars side by side on the left.
+     m_auimgr.AddPane( m_tbRight, EDA_PANE().VToolbar().Name( wxS( "RightToolbar" ) )
+-                      .Right().Layer( 3 ) );
++                      .Left().Layer( 2 ) );
+ 
+     m_auimgr.AddPane( m_appearancePanel, EDA_PANE().Name( wxS( "LayersManager" ) )
+                       .Right().Layer( 4 )
+diff --git a/pcbnew/pcbnew_config.cpp b/pcbnew/pcbnew_config.cpp
+index e516b61f..47047f0b 100644
+--- a/pcbnew/pcbnew_config.cpp
++++ b/pcbnew/pcbnew_config.cpp
+@@ -111,6 +111,10 @@ bool PCB_EDIT_FRAME::LoadProjectSettings()
+     PCB_SELECTION_FILTER_OPTIONS& filterOpts = selTool->GetFilter();
+ 
+     filterOpts = localSettings.m_PcbSelectionFilter;
++
++    // Eagle layout: clicking a pad takes its whole part; pads are never picked alone.
++    filterOpts.pads = false;
++
+     m_selectionFilterPanel->SetCheckboxesFromFilter( filterOpts );
+ 
+     PCB_DISPLAY_OPTIONS opts   = GetDisplayOptions();
+diff --git a/pcbnew/router/router_tool.cpp b/pcbnew/router/router_tool.cpp
+index 44fdd1e8..5b1ecfbb 100644
+--- a/pcbnew/router/router_tool.cpp
++++ b/pcbnew/router/router_tool.cpp
+@@ -1627,12 +1627,32 @@ void ROUTER_TOOL::performRouting( VECTOR2D aStartPosition )
+             m_router->Move( m_endSnapPoint, m_endItem );
+             m_startItem = nullptr;
+         }
+-        else if( evt->IsAction( &ACT_SwitchPosture ) )
++        else if( evt->IsAction( &ACT_SwitchPosture ) || evt->IsClick( BUT_RIGHT ) )
+         {
++            // Eagle: right-click while routing changes the bend.
+             m_router->FlipPosture();
+             updateEndItem( *evt );
+             m_router->Move( m_endSnapPoint, m_endItem );        // refresh
+         }
++        else if( evt->IsClick( BUT_MIDDLE ) )
++        {
++            // Eagle: middle-click while routing drops a via here and carries on,
++            // on the other layer.
++            if( !m_router->IsPlacingVia() )
++                handleLayerSwitch( ACT_PlaceThroughVia.MakeEvent(), true );
++
++            updateEndItem( *evt );
++            bool forceCommit = false;
++
++            if( m_router->FixRoute( m_endSnapPoint, m_endItem, false, forceCommit ) )
++                break;
++
++            switchLayerOnViaPlacement();
++            syncRouterAndFrameLayer();
++            updateEndItem( *evt );
++            m_router->Move( m_endSnapPoint, m_endItem );
++            m_startItem = nullptr;
++        }
+         else if( evt->IsAction( &PCB_ACTIONS::properties ) )
+         {
+             frame()->GetCanvas()->SetCurrentCursor( KICURSOR::ARROW );
+diff --git a/pcbnew/tools/edit_tool_move_fct.cpp b/pcbnew/tools/edit_tool_move_fct.cpp
+index 4d6d695e..5b7e2926 100644
+--- a/pcbnew/tools/edit_tool_move_fct.cpp
++++ b/pcbnew/tools/edit_tool_move_fct.cpp
+@@ -1369,7 +1369,8 @@ bool EDIT_TOOL::doMoveSelection( const TOOL_EVENT& aEvent, BOARD_COMMIT* aCommit
+         }
+         else if( evt->IsClick( BUT_RIGHT ) )
+         {
+-            m_selectionTool->GetToolMenu().ShowContextMenu( selection );
++            // Eagle: right-click while moving rotates.
++            m_toolMgr->PostAction( PCB_ACTIONS::rotateCcw );
+         }
+         else if( evt->IsAction( &ACTIONS::undo ) )
+         {

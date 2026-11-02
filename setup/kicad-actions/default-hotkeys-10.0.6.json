@@ -1,0 +1,790 @@
+{
+ "common.Control.cursorClick": [
+  "Return",
+  null
+ ],
+ "common.Control.cursorDblClick": [
+  "End",
+  null
+ ],
+ "common.Control.cursorDown": [
+  "Down",
+  null
+ ],
+ "common.Control.cursorDownFast": [
+  "Ctrl+Down",
+  null
+ ],
+ "common.Control.cursorLeft": [
+  "Left",
+  null
+ ],
+ "common.Control.cursorLeftFast": [
+  "Ctrl+Left",
+  null
+ ],
+ "common.Control.cursorRight": [
+  "Right",
+  null
+ ],
+ "common.Control.cursorRightFast": [
+  "Ctrl+Right",
+  null
+ ],
+ "common.Control.cursorUp": [
+  "Up",
+  null
+ ],
+ "common.Control.cursorUpFast": [
+  "Ctrl+Up",
+  null
+ ],
+ "common.Control.gridFast1": [
+  "Alt+1",
+  null
+ ],
+ "common.Control.gridFast2": [
+  "Alt+2",
+  null
+ ],
+ "common.Control.gridFastCycle": [
+  "Alt+4",
+  null
+ ],
+ "common.Control.gridNext": [
+  "N",
+  null
+ ],
+ "common.Control.gridPrev": [
+  "Shift+N",
+  null
+ ],
+ "common.Control.highContrastModeCycle": [
+  "H",
+  null
+ ],
+ "common.Control.libraryTreeSearch": [
+  "Ctrl+L",
+  null
+ ],
+ "common.Control.magneticSnapToggle": [
+  "Shift+S",
+  null
+ ],
+ "common.Control.new": [
+  "Ctrl+N",
+  null
+ ],
+ "common.Control.open": [
+  "Ctrl+O",
+  null
+ ],
+ "common.Control.panDown": [
+  "Shift+Down",
+  null
+ ],
+ "common.Control.panLeft": [
+  "Shift+Left",
+  null
+ ],
+ "common.Control.panRight": [
+  "Shift+Right",
+  null
+ ],
+ "common.Control.panUp": [
+  "Shift+Up",
+  null
+ ],
+ "common.Control.print": [
+  "Ctrl+P",
+  null
+ ],
+ "common.Control.save": [
+  "Ctrl+S",
+  null
+ ],
+ "common.Control.saveAs": [
+  "Ctrl+Shift+S",
+  null
+ ],
+ "common.Control.show3DViewer": [
+  "Alt+3",
+  null
+ ],
+ "common.Control.showDatasheet": [
+  "D",
+  null
+ ],
+ "common.Control.toggleGridOverrides": [
+  "Ctrl+Shift+G",
+  null
+ ],
+ "common.Control.toggleUnits": [
+  "Ctrl+U",
+  null
+ ],
+ "common.Control.updatePcbFromSchematic": [
+  "F8",
+  null
+ ],
+ "common.Control.zoomCenter": [
+  "F4",
+  null
+ ],
+ "common.Control.zoomFitObjects": [
+  "Ctrl+Home",
+  null
+ ],
+ "common.Control.zoomFitScreen": [
+  "Ctrl+0",
+  null
+ ],
+ "common.Control.zoomOut": [
+  "Ctrl+-",
+  null
+ ],
+ "common.Control.zoomRedraw": [
+  "Ctrl+R",
+  null
+ ],
+ "common.Control.zoomTool": [
+  "Ctrl+F5",
+  null
+ ],
+ "common.Interactive.copy": [
+  "Ctrl+C",
+  null
+ ],
+ "common.Interactive.copyAsText": [
+  "Ctrl+Shift+C",
+  null
+ ],
+ "common.Interactive.cut": [
+  "Ctrl+X",
+  null
+ ],
+ "common.Interactive.delete": [
+  "Back",
+  null
+ ],
+ "common.Interactive.duplicate": [
+  "Ctrl+D",
+  null
+ ],
+ "common.Interactive.find": [
+  "Ctrl+F",
+  null
+ ],
+ "common.Interactive.findAndReplace": [
+  "Ctrl+Alt+F",
+  null
+ ],
+ "common.Interactive.findNext": [
+  "F3",
+  null
+ ],
+ "common.Interactive.findNextMarker": [
+  "Ctrl+Shift+F3",
+  null
+ ],
+ "common.Interactive.findPrevious": [
+  "Shift+F3",
+  null
+ ],
+ "common.Interactive.finish": [
+  "End",
+  null
+ ],
+ "common.Interactive.measureTool": [
+  "Ctrl+Shift+M",
+  null
+ ],
+ "common.Interactive.paste": [
+  "Ctrl+V",
+  null
+ ],
+ "common.Interactive.pasteSpecial": [
+  "Ctrl+Shift+V",
+  null
+ ],
+ "common.Interactive.redo": [
+  "Ctrl+Shift+Z",
+  null
+ ],
+ "common.Interactive.search": [
+  "Ctrl+G",
+  null
+ ],
+ "common.Interactive.selectAll": [
+  "Ctrl+A",
+  null
+ ],
+ "common.Interactive.undo": [
+  "Ctrl+Z",
+  null
+ ],
+ "common.Interactive.unselectAll": [
+  "Ctrl+Shift+A",
+  null
+ ],
+ "common.SuiteControl.listHotKeys": [
+  "Ctrl+F1",
+  null
+ ],
+ "common.SuiteControl.openPreferences": [
+  "Ctrl+,",
+  null
+ ],
+ "eeschema.EditorControl.clearHighlight": [
+  "~",
+  null
+ ],
+ "eeschema.EditorControl.editLibSymbolWithSymbolEditor": [
+  "Ctrl+Shift+E",
+  null
+ ],
+ "eeschema.EditorControl.editWithSymbolEditor": [
+  "Ctrl+E",
+  null
+ ],
+ "eeschema.EditorControl.highlightNet": [
+  "`",
+  null
+ ],
+ "eeschema.EditorControl.importGraphics": [
+  "Ctrl+Shift+F",
+  null
+ ],
+ "eeschema.EditorControl.lineModeNext": [
+  "Shift+Space",
+  null
+ ],
+ "eeschema.EditorControl.nextNetItem": [
+  "Tab",
+  null
+ ],
+ "eeschema.EditorControl.previousNetItem": [
+  "Shift+Tab",
+  null
+ ],
+ "eeschema.EditorTool.showHierarchy": [
+  "Ctrl+H",
+  null
+ ],
+ "eeschema.InteractiveDrawing.drawSheet": [
+  "S",
+  null
+ ],
+ "eeschema.InteractiveDrawing.placeBusWireEntry": [
+  "Z",
+  null
+ ],
+ "eeschema.InteractiveDrawing.placeDesignBlock": [
+  "Shift+B",
+  null
+ ],
+ "eeschema.InteractiveDrawing.placeGlobalLabel": [
+  "Ctrl+L",
+  null
+ ],
+ "eeschema.InteractiveDrawing.placeHierarchicalLabel": [
+  "H",
+  null
+ ],
+ "eeschema.InteractiveDrawing.placeJunction": [
+  "J",
+  null
+ ],
+ "eeschema.InteractiveDrawing.placeLabel": [
+  "L",
+  null
+ ],
+ "eeschema.InteractiveDrawing.placeNoConnect": [
+  "Q",
+  null
+ ],
+ "eeschema.InteractiveDrawing.placePowerSymbol": [
+  "P",
+  null
+ ],
+ "eeschema.InteractiveDrawing.placeSchematicText": [
+  "T",
+  null
+ ],
+ "eeschema.InteractiveDrawing.placeSymbol": [
+  "A",
+  null
+ ],
+ "eeschema.InteractiveDrawingLineWireBus.drawBuses": [
+  "B",
+  null
+ ],
+ "eeschema.InteractiveDrawingLineWireBus.drawLines": [
+  "I",
+  null
+ ],
+ "eeschema.InteractiveDrawingLineWireBus.drawWires": [
+  "W",
+  null
+ ],
+ "eeschema.InteractiveDrawingLineWireBus.switchPosture": [
+  "/",
+  null
+ ],
+ "eeschema.InteractiveDrawingLineWireBus.undoLastSegment": [
+  "Back",
+  null
+ ],
+ "eeschema.InteractiveDrawingLineWireBus.unfoldBus": [
+  "C",
+  null
+ ],
+ "eeschema.InteractiveEdit.autoplaceFields": [
+  "O",
+  null
+ ],
+ "eeschema.InteractiveEdit.editFootprint": [
+  "F",
+  null
+ ],
+ "eeschema.InteractiveEdit.editReference": [
+  "U",
+  null
+ ],
+ "eeschema.InteractiveEdit.editValue": [
+  "V",
+  null
+ ],
+ "eeschema.InteractiveEdit.mirrorH": [
+  "X",
+  null
+ ],
+ "eeschema.InteractiveEdit.mirrorV": [
+  "Y",
+  null
+ ],
+ "eeschema.InteractiveEdit.properties": [
+  "E",
+  null
+ ],
+ "eeschema.InteractiveEdit.repeatDrawItem": [
+  "F1",
+  null
+ ],
+ "eeschema.InteractiveEdit.rotateCCW": [
+  "R",
+  null
+ ],
+ "eeschema.InteractiveEdit.rotateCW": [
+  "Shift+R",
+  null
+ ],
+ "eeschema.InteractiveEdit.swap": [
+  "Alt+S",
+  null
+ ],
+ "eeschema.InteractiveMove.drag": [
+  "G",
+  null
+ ],
+ "eeschema.InteractiveMove.move": [
+  "M",
+  null
+ ],
+ "eeschema.InteractiveSelection.SelectConnection": [
+  "Ctrl+4",
+  null
+ ],
+ "eeschema.InteractiveSelection.SelectNode": [
+  "Alt+3",
+  null
+ ],
+ "eeschema.NavigateTool.back": [
+  "Alt+Left",
+  null
+ ],
+ "eeschema.NavigateTool.forward": [
+  "Alt+Right",
+  null
+ ],
+ "eeschema.NavigateTool.leaveSheet": [
+  "Alt+Back",
+  null
+ ],
+ "eeschema.NavigateTool.next": [
+  "PgDn",
+  null
+ ],
+ "eeschema.NavigateTool.previous": [
+  "PgUp",
+  null
+ ],
+ "eeschema.NavigateTool.up": [
+  "Alt+Up",
+  null
+ ],
+ "eeschema.Simulation.newAnalysisTab": [
+  "Ctrl+N",
+  null
+ ],
+ "eeschema.Simulation.openWorkbook": [
+  "Ctrl+O",
+  null
+ ],
+ "eeschema.Simulation.probe": [
+  "Shift+P",
+  null
+ ],
+ "eeschema.Simulation.runSimulation": [
+  "R",
+  null
+ ],
+ "eeschema.Simulation.saveWorkbook": [
+  "Ctrl+S",
+  null
+ ],
+ "eeschema.Simulation.saveWorkbookAs": [
+  "Ctrl+Shift+S",
+  null
+ ],
+ "eeschema.Simulation.tune": [
+  "Shift+T",
+  null
+ ],
+ "eeschema.SymbolDrawing.placeSymbolPin": [
+  "P",
+  null
+ ],
+ "eeschema.SymbolLibraryControl.newSymbol": [
+  "Ctrl+N",
+  null
+ ],
+ "eeschema.SymbolLibraryControl.saveLibraryAs": [
+  "Ctrl+Shift+S",
+  null
+ ],
+ "pcbnew.Array.createArray": [
+  "Ctrl+T",
+  null
+ ],
+ "pcbnew.Control.changeTrackLayerPrev": [
+  "Ctrl+-",
+  null
+ ],
+ "pcbnew.Control.layerAlphaDec": [
+  "{",
+  null
+ ],
+ "pcbnew.Control.layerAlphaInc": [
+  "}",
+  null
+ ],
+ "pcbnew.Control.layerBottom": [
+  "PgDn",
+  null
+ ],
+ "pcbnew.Control.layerPairPresetCycle": [
+  "Shift+V",
+  null
+ ],
+ "pcbnew.Control.layerPrev": [
+  "-",
+  null
+ ],
+ "pcbnew.Control.layerToggle": [
+  "V",
+  null
+ ],
+ "pcbnew.Control.layerTop": [
+  "PgUp",
+  null
+ ],
+ "pcbnew.Control.trackDisplayMode": [
+  "K",
+  null
+ ],
+ "pcbnew.EditorControl.EditFpInFpEditor": [
+  "Ctrl+E",
+  null
+ ],
+ "pcbnew.EditorControl.EditLibFpInFpEditor": [
+  "Ctrl+Shift+E",
+  null
+ ],
+ "pcbnew.EditorControl.clearHighlight": [
+  "~",
+  null
+ ],
+ "pcbnew.EditorControl.highlightNet": [
+  "`",
+  null
+ ],
+ "pcbnew.EditorControl.placeFootprint": [
+  "A",
+  null
+ ],
+ "pcbnew.EditorControl.toggleLock": [
+  "L",
+  null
+ ],
+ "pcbnew.EditorControl.toggleNetHighlight": [
+  "Alt+`",
+  null
+ ],
+ "pcbnew.EditorControl.trackWidthDec": [
+  "Shift+W",
+  null
+ ],
+ "pcbnew.EditorControl.trackWidthInc": [
+  "W",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.arc": [
+  "Ctrl+Shift+A",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.arcPosture": [
+  "/",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.bezier": [
+  "Ctrl+Shift+B",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.circle": [
+  "Ctrl+Shift+C",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.decWidth": [
+  "Ctrl+-",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.deleteLastPoint": [
+  "Back",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.graphicPolygon": [
+  "Ctrl+Shift+P",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.line": [
+  "Ctrl+Shift+L",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.orthogonalDimension": [
+  "Ctrl+Shift+H",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.placeDesignBlock": [
+  "Shift+B",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.placeImportedGraphics": [
+  "Ctrl+Shift+F",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.ruleArea": [
+  "Ctrl+Shift+K",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.setAnchor": [
+  "Ctrl+Shift+N",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.similarZone": [
+  "Ctrl+Shift+.",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.text": [
+  "Ctrl+Shift+T",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.via": [
+  "Ctrl+Shift+X",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.zone": [
+  "Alt+Z",
+  null
+ ],
+ "pcbnew.InteractiveDrawing.zoneCutout": [
+  "Shift+C",
+  null
+ ],
+ "pcbnew.InteractiveEdit.FindMove": [
+  "T",
+  null
+ ],
+ "pcbnew.InteractiveEdit.deleteFull": [
+  "Shift+Del",
+  null
+ ],
+ "pcbnew.InteractiveEdit.duplicateIncrementPads": [
+  "Ctrl+Shift+D",
+  null
+ ],
+ "pcbnew.InteractiveEdit.flip": [
+  "F",
+  null
+ ],
+ "pcbnew.InteractiveEdit.moveExact": [
+  "Shift+M",
+  null
+ ],
+ "pcbnew.InteractiveEdit.packAndMoveFootprints": [
+  "P",
+  null
+ ],
+ "pcbnew.InteractiveEdit.properties": [
+  "E",
+  null
+ ],
+ "pcbnew.InteractiveEdit.rotateCcw": [
+  "R",
+  null
+ ],
+ "pcbnew.InteractiveEdit.rotateCw": [
+  "Shift+R",
+  null
+ ],
+ "pcbnew.InteractiveEdit.skip": [
+  "Tab",
+  null
+ ],
+ "pcbnew.InteractiveEdit.swap": [
+  "Alt+S",
+  null
+ ],
+ "pcbnew.InteractiveMove.move": [
+  "M",
+  null
+ ],
+ "pcbnew.InteractiveMove.moveIndividually": [
+  "Ctrl+M",
+  null
+ ],
+ "pcbnew.InteractiveRouter.AttemptFinish": [
+  "F",
+  null
+ ],
+ "pcbnew.InteractiveRouter.Autoroute": [
+  "Shift+F",
+  null
+ ],
+ "pcbnew.InteractiveRouter.ContinueFromEnd": [
+  "Ctrl+E",
+  null
+ ],
+ "pcbnew.InteractiveRouter.DiffPair": [
+  "6",
+  null
+ ],
+ "pcbnew.InteractiveRouter.Drag45Degree": [
+  "D",
+  null
+ ],
+ "pcbnew.InteractiveRouter.DragFreeAngle": [
+  "G",
+  null
+ ],
+ "pcbnew.InteractiveRouter.RouteSelected": [
+  "Shift+X",
+  null
+ ],
+ "pcbnew.InteractiveRouter.RouteSelectedFromEnd": [
+  "Shift+E",
+  null
+ ],
+ "pcbnew.InteractiveRouter.SettingsDialog": [
+  "Ctrl+<",
+  null
+ ],
+ "pcbnew.InteractiveRouter.SingleTrack": [
+  "X",
+  null
+ ],
+ "pcbnew.InteractiveRouter.UndoLastSegment": [
+  "Back",
+  null
+ ],
+ "pcbnew.InteractiveSelection.GrabUnconnected": [
+  "Shift+O",
+  null
+ ],
+ "pcbnew.InteractiveSelection.SelectConnection": [
+  "U",
+  null
+ ],
+ "pcbnew.InteractiveSelection.SelectUnconnected": [
+  "O",
+  null
+ ],
+ "pcbnew.InteractiveSelection.unrouteSegment": [
+  "Back",
+  null
+ ],
+ "pcbnew.LengthTuner.Settings": [
+  "Ctrl+L",
+  null
+ ],
+ "pcbnew.LengthTuner.TuneDiffPair": [
+  "8",
+  null
+ ],
+ "pcbnew.LengthTuner.TuneDiffPairSkew": [
+  "9",
+  null
+ ],
+ "pcbnew.LengthTuner.TuneSingleTrack": [
+  "7",
+  null
+ ],
+ "pcbnew.ModuleEditor.newFootprint": [
+  "Ctrl+N",
+  null
+ ],
+ "pcbnew.PadTool.explodePad": [
+  "Ctrl+E",
+  null
+ ],
+ "pcbnew.PadTool.recombinePad": [
+  "Ctrl+E",
+  null
+ ],
+ "pcbnew.PointEditor.addCorner": [
+  "F1",
+  null
+ ],
+ "pcbnew.PositionRelative.positionRelative": [
+  "Shift+P",
+  null
+ ],
+ "pcbnew.TableEditor.editTable": [
+  "Ctrl+E",
+  null
+ ],
+ "pcbnew.ZoneFiller.zoneFillAll": [
+  "B",
+  null
+ ],
+ "pcbnew.ZoneFiller.zoneUnfillAll": [
+  "Ctrl+B",
+  null
+ ],
+ "pcbnew.lengthTuner.AmplDecrease": [
+  "4",
+  null
+ ],
+ "pcbnew.lengthTuner.AmplIncrease": [
+  "3",
+  null
+ ],
+ "pcbnew.lengthTuner.SpacingDecrease": [
+  "2",
+  null
+ ],
+ "pcbnew.lengthTuner.SpacingIncrease": [
+  "1",
+  null
+ ]
+}

@@ -1,0 +1,38 @@
+common.Control.showProperties	Ctrl+I
+common.Control.toggleGrid	F6
+common.Control.zoomCenter	F5
+common.Control.zoomFitScreen	Alt+F2	Ctrl+0
+common.Control.zoomIn	F3
+common.Control.zoomOut	F4
+common.Control.zoomRedraw	F2
+common.Interactive.copyAsText	<unassigned>
+common.Interactive.deleteTool	Ctrl+D
+common.Interactive.duplicate	Ctrl+Shift+C
+common.Interactive.find	Ctrl+F
+common.Interactive.findNext	<unassigned>
+common.Interactive.measureTool	Alt+F7	Ctrl+Shift+M
+common.Interactive.pasteSpecial	<unassigned>
+common.Interactive.redo	Ctrl+Y	F10
+common.Interactive.undo	Ctrl+Z	F9
+common.Interactive.unselectAll	<unassigned>
+eeschema.InspectionTool.runERC	Ctrl+Shift+D
+eeschema.InteractiveDrawing.placeSchematicText	Ctrl+T	T
+eeschema.InteractiveDrawing.placeSymbol	Ctrl+Shift+A	A
+eeschema.InteractiveDrawingLineWireBus.drawLines	Ctrl+W	I
+eeschema.InteractiveEdit.editReference	Ctrl+Shift+N	U
+eeschema.InteractiveEdit.editValue	Ctrl+Shift+V	V
+eeschema.InteractiveMove.move	Ctrl+M	M
+pcbnew.Array.createArray	<unassigned>
+pcbnew.DRCTool.runDRC	Ctrl+Shift+D
+pcbnew.EditorControl.placeFootprint	Ctrl+Shift+A	A
+pcbnew.InteractiveDrawing.arc	<unassigned>
+pcbnew.InteractiveDrawing.circle	<unassigned>
+pcbnew.InteractiveDrawing.graphicPolygon	<unassigned>
+pcbnew.InteractiveDrawing.line	Ctrl+W	Ctrl+Shift+L
+pcbnew.InteractiveDrawing.text	Ctrl+T	Ctrl+Shift+T
+pcbnew.InteractiveDrawing.zone	Ctrl+Shift+P	Alt+Z
+pcbnew.InteractiveEdit.duplicateIncrementPads	<unassigned>
+pcbnew.InteractiveMove.move	Ctrl+M	M
+pcbnew.InteractiveMove.moveIndividually	<unassigned>
+pcbnew.InteractiveRouter.SingleTrack	Ctrl+R	X
+pcbnew.InteractiveSelection.unrouteSelected	Ctrl+Shift+R

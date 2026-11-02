@@ -1,0 +1,245 @@
+{
+  "meta": {
+    "version": 1
+  },
+  "toolbars": [
+    {
+      "contents": [
+        {
+          "name": "pcbnew.InteractiveEdit.properties",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.Control.showLayersManager",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.InteractiveMove.move",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.InteractiveEdit.flip",
+          "type": "TOOL"
+        },
+        {
+          "name": "common.Interactive.selectSetRect",
+          "type": "TOOL"
+        },
+        {
+          "name": "common.Interactive.paste",
+          "type": "TOOL"
+        },
+        {
+          "name": "common.Interactive.delete",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.InteractiveEdit.swapPadNets",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.InteractiveEdit.swapGateNets",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.InteractiveRouter.BreakTrack",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.InteractiveRouter.SingleTrack",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.InteractiveDrawing.line",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.InteractiveDrawing.circle",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.InteractiveDrawing.rectangle",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.InteractiveDrawing.alignedDimension",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.DRCTool.runDRC",
+          "type": "TOOL"
+        }
+      ],
+      "name": "LEFT"
+    },
+    {
+      "contents": [
+        {
+          "name": "pcbnew.EditorControl.highlightNetSelection",
+          "type": "TOOL"
+        },
+        {
+          "name": "common.Interactive.measureTool",
+          "type": "TOOL"
+        },
+        {
+          "name": "common.Interactive.duplicate",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.InteractiveEdit.rotateCcw",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.GlobalEdit.editTracksAndVias",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.EditorControl.toggleLock",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.EditorControl.placeFootprint",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.GlobalEdit.changeFootprint",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.GlobalEdit.cleanupTracksAndVias",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.InteractiveSelection.unrouteSelected",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.InteractiveDrawing.via",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.InteractiveDrawing.text",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.InteractiveDrawing.arc",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.InteractiveDrawing.zone",
+          "type": "TOOL"
+        },
+        {
+          "name": "pcbnew.ZoneFiller.zoneFillAll",
+          "type": "TOOL"
+        },
+        {
+          "size": 48,
+          "type": "SPACER"
+        }
+      ],
+      "name": "RIGHT"
+    },
+    {
+      "contents": [
+        {
+          "name": "common.Control.open",
+          "type": "TOOL"
+        },
+        {
+          "name": "common.Control.save",
+          "type": "TOOL"
+        },
+        {
+          "name": "common.Control.print",
+          "type": "TOOL"
+        },
+        {
+          "name": "common.Control.showFootprintEditor",
+          "type": "TOOL"
+        },
+        {
+          "type": "SEPARATOR"
+        },
+        {
+          "name": "common.Control.zoomFitScreen",
+          "type": "TOOL"
+        },
+        {
+          "name": "common.Control.zoomInCenter",
+          "type": "TOOL"
+        },
+        {
+          "name": "common.Control.zoomOutCenter",
+          "type": "TOOL"
+        },
+        {
+          "name": "common.Control.zoomRedraw",
+          "type": "TOOL"
+        },
+        {
+          "name": "common.Control.zoomTool",
+          "type": "TOOL"
+        },
+        {
+          "type": "SEPARATOR"
+        },
+        {
+          "name": "common.Interactive.undo",
+          "type": "TOOL"
+        },
+        {
+          "name": "common.Interactive.redo",
+          "type": "TOOL"
+        },
+        {
+          "type": "SEPARATOR"
+        },
+        {
+          "name": "common.Interactive.find",
+          "type": "TOOL"
+        },
+        {
+          "name": "common.Control.updatePcbFromSchematic",
+          "type": "TOOL"
+        },
+        {
+          "type": "SEPARATOR"
+        },
+        {
+          "name": "common.Control.toggleGrid",
+          "type": "TOOL"
+        },
+        {
+          "name": "common.Control.toggleUnits",
+          "type": "TOOL"
+        },
+        {
+          "type": "SEPARATOR"
+        },
+        {
+          "name": "pcbnew.Control.showRatsnest",
+          "type": "TOOL"
+        },
+        {
+          "size": -1,
+          "type": "SPACER"
+        },
+        {
+          "name": "common.Control.plot",
+          "type": "TOOL"
+        },
+        {
+          "name": "control.IPCPlugin",
+          "type": "CONTROL"
+        },
+        {
+          "name": "pcbnew.EditorControl.showEeschema",
+          "type": "TOOL"
+        }
+      ],
+      "name": "TOP_MAIN"
+    }
+  ]
+}
