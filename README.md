@@ -1,9 +1,27 @@
-# KiCad, the Eagle 7 way
+# Talon
 
-KiCad 10, reworked so that someone whose hands learned PCB design on Eagle 7
-can sit down and work without relearning. You get Eagle's command column,
-Eagle's command-then-click editing, Eagle's mouse and keys, Eagle's layer
-names, and a dark icon set drawn after Eagle 7's.
+**KiCad 10, made to look and work like Eagle 7.**
+
+## Why this exists
+
+I designed boards in Eagle every day for ten years, until Autodesk bought it,
+folded it into Fusion and then killed it. The tool I knew by hand was gone. In
+its place was a subscription, and a workflow that only held together if you
+stayed inside Autodesk's walls.
+
+Now that people have been replacing Fusion with SolidCraft, the mechanical
+side has a free, open answer. The electronics side is where the gap is. What
+Eagle and Fusion did well together was the round trip: draw the board, see it
+in the enclosure, fix it, go again. Talon is half of filling that gap. The
+other half is the Push to SolidCraft plugin, which sends the board from KiCad
+straight into the SolidCraft model. Together they are a real option for
+anyone who was forced off Autodesk, or who is tired of paying more every year
+for tools that keep getting worse.
+
+KiCad is already the best free board tool there is. Talon doesn't replace it.
+It makes KiCad feel like home if your hands learned on Eagle 7: Eagle's
+command column, command-then-click editing, mouse, keys, layer names and
+colours, and a dark icon set drawn after Eagle 7's.
 
 Underneath it is still KiCad: the same files, libraries, design rules and
 fabrication output. Nothing here changes what a board is, only how you drive
@@ -111,8 +129,8 @@ included.
 Close KiCad, then:
 
 ```
-git clone https://github.com/Xeno-va/kicad-eagle7.git
-cd kicad-eagle7
+git clone https://github.com/Xeno-va/talon.git
+cd talon
 ./install.sh
 ```
 
