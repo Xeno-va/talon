@@ -5,8 +5,11 @@
 ## Why this exists
 
 I learned Eagle well before version 7 and designed boards in it every day for
-ten years. Version 7 was the last one that was still Eagle. With 8, Autodesk
-started moving things around; then it folded Eagle into Fusion and killed it.
+ten years. Version 7 was the last one CadSoft made before Autodesk bought the
+company in 2016. Version 8, in 2017, was Autodesk's first, and it went
+subscription-only and started moving things around. In 2020 Eagle stopped
+being sold on its own and became part of Fusion, and on June 7, 2026 Autodesk
+stopped selling and supporting it altogether.
 The tool I knew by hand was gone. In its place was a subscription, and a
 workflow that only held together if you stayed inside Autodesk's walls.
 
