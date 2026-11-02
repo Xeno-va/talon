@@ -4,10 +4,11 @@
 
 ## Why this exists
 
-I designed boards in Eagle every day for ten years, until Autodesk bought it,
-folded it into Fusion and then killed it. The tool I knew by hand was gone. In
-its place was a subscription, and a workflow that only held together if you
-stayed inside Autodesk's walls.
+I learned Eagle well before version 7 and designed boards in it every day for
+ten years. Version 7 was the last one that was still Eagle. With 8, Autodesk
+started moving things around; then it folded Eagle into Fusion and killed it.
+The tool I knew by hand was gone. In its place was a subscription, and a
+workflow that only held together if you stayed inside Autodesk's walls.
 
 Now that people have been replacing Fusion with SolidCraft, the mechanical
 side has a free, open answer. The electronics side is where the gap is. What
@@ -19,7 +20,8 @@ anyone who was forced off Autodesk, or who is tired of paying more every year
 for tools that keep getting worse.
 
 KiCad is already the best free board tool there is. Talon doesn't replace it.
-It makes KiCad feel like home if your hands learned on Eagle 7: Eagle's
+It makes KiCad feel like home if your hands learned Eagle, set up the way
+Eagle 7 had it, before Autodesk changed it: Eagle's
 command column, command-then-click editing, mouse, keys, layer names and
 colours, and a dark icon set drawn after Eagle 7's.
 
