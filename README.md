@@ -4,7 +4,7 @@
 
 ## Why this exists
 
-I learned Eagle well before version 7 and designed boards in it every day for
+I learned Eagle well before version 7 and was fluent in it for
 ten years. Version 7 was the last one CadSoft made before Autodesk bought the
 company in 2016. Version 8, in 2017, was Autodesk's first, and it went
 subscription-only and started moving things around. In 2020 Eagle stopped
